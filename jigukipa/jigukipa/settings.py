@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'kipa.User'
+
 
 # Application definition
 
@@ -38,7 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'kipa',
+    'rest_framework',
+    'knox'
+    
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',)
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -81,7 +90,7 @@ DATABASES = {
         #     'read_default_file': '/etc/mysql/my.cnf',
         # },
         'NAME': 'jigukipa_data',
-        'USER': 'djangouser',
+        'USER': 'django_user',
         'PASSWORD': '073bex423',
         'HOST': 'localhost',
         'PORT': '3306',
