@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Posts, User
+from .models import Post, User
 # from django.conf import settings
 # from django.contrib.auth.models import User
 
@@ -32,6 +32,13 @@ class UserSerializer(serializers.ModelSerializer):
     #         if obj in request.user.following.all():
     #             return True
     #     return False
+
+
+# Post Serializer
+class PostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Post
+        fields = '__all__'
 
 
 # Register Serializer
@@ -104,11 +111,6 @@ class RegisterSerializer(serializers.ModelSerializer):
 #         return profile
 
 
-# # Posts serializer
-# class PostSerializer(serializers.ModelSerializer):
 
-#     class Meta:
-#         model = Posts
-#         fields = '__all__'
 
 

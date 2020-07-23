@@ -1,8 +1,8 @@
 from rest_framework import generics, permissions, viewsets
 from rest_framework.response import Response
 from knox.models import AuthToken
-from .serializers import RegisterSerializer, UserSerializer
-from .models import User
+from .serializers import RegisterSerializer, UserSerializer, PostSerializer
+from .models import User, Post
 
 
 
@@ -36,4 +36,11 @@ class UserProfileViewset(viewsets.ModelViewSet):
 
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = [permissions.AllowAny]
+
+
+class PostViewset(viewsets.ModelViewSet):
+
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
     permission_classes = [permissions.AllowAny]

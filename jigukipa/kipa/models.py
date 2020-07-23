@@ -52,8 +52,8 @@ class User(AbstractUser):
 #         return f"{self.user_id} follows {self.following_user_id}"
 
 
-class Posts(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="posts", on_delete=models.CASCADE)
+class Post(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="post", on_delete=models.CASCADE)
     picture = models.ImageField(upload_to='pictures/', max_length=100)
     caption = models.CharField(max_length=300)
     location = models.CharField(max_length=100)
