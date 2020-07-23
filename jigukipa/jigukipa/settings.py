@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'kipa',
     'rest_framework',
-    'knox'
+    'knox',
+    'frontend'
     
 ]
 
